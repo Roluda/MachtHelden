@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3113802378053929758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3113802378053929759}
+  - component: {fileID: 3113802378053929756}
+  - component: {fileID: 3113802378053929757}
+  m_Layer: 9
+  m_Name: BuildingTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3113802378053929759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113802378053929758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3113802378053929756
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113802378053929758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.15689635}
+--- !u!114 &3113802378053929757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3113802378053929758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cee2a3bb7235d844ba61ef8e62b7489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeModelPrefabs:
+  - {fileID: 9166958211203488047, guid: e56c9c9be4da5864e99e868a78b6f32f, type: 3}
+  - {fileID: 1776367707747096254, guid: a08a35f28af67514fa1ad4c2998c3471, type: 3}
+  - {fileID: 4789263149039039893, guid: fbd41f6789ba76e41881e95de47fd275, type: 3}
+  - {fileID: 3220314233932389810, guid: df5e0402a1fdf404eb45f4348789c001, type: 3}
+  instantiationInferenceCheck:
+    serializedVersion: 2
+    m_Bits: 512
+  InferenceRadius: 0
