@@ -720,7 +720,7 @@ Light:
   serializedVersion: 9
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2888,7 +2888,7 @@ PrefabInstance:
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[0].coreOptions.sublayerName
-      value: Untitled
+      value: Trees
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
@@ -3031,7 +3031,7 @@ PrefabInstance:
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[1].coreOptions.sublayerName
-      value: Untitled
+      value: Trees
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
@@ -3174,12 +3174,12 @@ PrefabInstance:
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[2].coreOptions.isActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _vectorData._layerProperty.vectorSubLayers.Array.data[2].coreOptions.sublayerName
-      value: Untitled
+      value: Fires
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
@@ -3775,12 +3775,22 @@ PrefabInstance:
     - target: {fileID: 4111947095653153838, guid: ffa276ed7b25e49478dc0190196f2ab2,
         type: 3}
       propertyPath: dragSpeed
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4111947095653153838, guid: ffa276ed7b25e49478dc0190196f2ab2,
         type: 3}
       propertyPath: dragDistance
-      value: 25
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111947095653153838, guid: ffa276ed7b25e49478dc0190196f2ab2,
+        type: 3}
+      propertyPath: zoomSpeed
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111947095653153838, guid: ffa276ed7b25e49478dc0190196f2ab2,
+        type: 3}
+      propertyPath: minMaxZoom.y
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa276ed7b25e49478dc0190196f2ab2, type: 3}

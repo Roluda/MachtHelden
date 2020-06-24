@@ -58,11 +58,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeModelPrefabs:
-  - {fileID: 9166958211203488047, guid: e56c9c9be4da5864e99e868a78b6f32f, type: 3}
-  - {fileID: 1776367707747096254, guid: a08a35f28af67514fa1ad4c2998c3471, type: 3}
-  - {fileID: 4789263149039039893, guid: fbd41f6789ba76e41881e95de47fd275, type: 3}
-  - {fileID: 3220314233932389810, guid: df5e0402a1fdf404eb45f4348789c001, type: 3}
+  - {fileID: 6867287853661046936, guid: 810e030a865c2dd48959154be36a3dfb, type: 3}
+  - {fileID: 2358342324094078109, guid: 2f21b0c0fe601e04d8cb1b5ef9c1ba01, type: 3}
+  - {fileID: 3866243655138432632, guid: 05a6fc92a83c1ba42aab899aab289792, type: 3}
+  - {fileID: 1800415797701550732, guid: a48a632273eea7743ad08b0cf2bdcecd, type: 3}
+  - {fileID: 2872605135911113024, guid: 7b70e9d9d07b115469c4df14a7eff955, type: 3}
   instantiationInferenceCheck:
     serializedVersion: 2
     m_Bits: 512
-  InferenceRadius: 0
+  InferenceRadius: 1

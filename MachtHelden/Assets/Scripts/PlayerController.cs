@@ -7,12 +7,12 @@ using Photon.Realtime;
 using Photon.Pun;
 using TMPro;
 
-public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
-{
+public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable {
     [SerializeField]
     SpriteRenderer avatarRender;
     [SerializeField]
     TMP_Text flyingName;
+
 
     ILocationProvider _locationProvider;
     ILocationProvider LocationProvider
@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
         if (GameManager.Instance.mapInitialized&&(photonView.IsMine || !PhotonNetwork.IsConnected))
         {
             var map = LocationProviderFactory.Instance.mapManager;
-            transform.localPosition = map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude), Time.deltaTime*5);
+            Shader.SetGlobalVector("_PlayerPosition", transform.position);
             Debug.Log(transform.localPosition);
         }
     }
