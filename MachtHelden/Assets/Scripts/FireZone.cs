@@ -33,6 +33,7 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
+    List<PlayerController> helpers = new List<PlayerController>();
 
     private void OnTriggerStay(Collider other)
     {
@@ -40,6 +41,10 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
             if (other.gameObject.layer == 8)
             {
                 FlameHealth -= decayRate * Time.deltaTime;
+                PlayerController helper = other.gameObject.GetComponent<PlayerController>();
+                if (helper != null && !helpers.Contains(helper)) {
+                    helpers.Add(helper);
+                }
             }
         }
     }
@@ -52,6 +57,9 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
 
     void Extinguish()
     {
+        foreach(PlayerController helper in helpers) {
+            helper.powerLevel++;
+        }
         if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected)
         {
             QuestManager.Instance.CompleteStage();
