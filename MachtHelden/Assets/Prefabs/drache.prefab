@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 747014049907381746}
+  - component: {fileID: -435674440499176140}
   m_Layer: 0
   m_Name: drache
   m_TagString: Untagged
@@ -23,14 +24,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7089830013704808469}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.24961951, y: 0, z: 0, w: 0.96834403}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7845651221956626213}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.91, y: 0, z: 0}
+--- !u!114 &-435674440499176140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089830013704808469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1599a87fff0f34bb43479b17a57985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  averageHeight: 0
+  render: {fileID: 986673220051781394}
+  amplitude: 0.2
+  frequency: 0.7
+  degreePerSecond: 30
+  target: {fileID: 0}
 --- !u!1001 &2998252731867343935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,11 +117,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6617282185489552595, guid: 928f24b49bfbeb24490a1ccf29e8d791,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7220a317698a6d441b0700d032112b83, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 928f24b49bfbeb24490a1ccf29e8d791, type: 3}
 --- !u!4 &7845651221956626213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 928f24b49bfbeb24490a1ccf29e8d791,
+    type: 3}
+  m_PrefabInstance: {fileID: 2998252731867343935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &986673220051781394 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6617282185489552595, guid: 928f24b49bfbeb24490a1ccf29e8d791,
     type: 3}
   m_PrefabInstance: {fileID: 2998252731867343935}
   m_PrefabAsset: {fileID: 0}
