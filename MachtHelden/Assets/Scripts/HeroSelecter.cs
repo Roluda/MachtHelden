@@ -172,9 +172,9 @@ public class HeroSelecter : MonoBehaviour
 
     public void SetHero()
     {
-        ExitGames.Client.Photon.Hashtable newProp = new ExitGames.Client.Photon.Hashtable();
-        newProp.Add("Hero", Index);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(newProp);
+        ExitGames.Client.Photon.Hashtable current = PhotonNetwork.LocalPlayer.CustomProperties;
+        current["Hero"] = Index;
+        PhotonNetwork.LocalPlayer.SetCustomProperties(current);
     }
 
     int GetIndexNeighbour(int request)
