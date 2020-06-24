@@ -25,6 +25,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     void Start()
     {
         ExitGames.Client.Photon.PhotonPeer.RegisterType(typeof(FireSpawn), 255, FireSpawn.Serialize, FireSpawn.Deserialize);
+        ExitGames.Client.Photon.Hashtable customProps = new ExitGames.Client.Photon.Hashtable();
+        customProps.Add("Hero", 0);
+        customProps.Add("PowerLevel", 0);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(customProps);
     }
 
     public void Connect()

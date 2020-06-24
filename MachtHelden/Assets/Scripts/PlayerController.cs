@@ -13,6 +13,27 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable {
     [SerializeField]
     TMP_Text flyingName;
 
+    public int powerLevel {
+        get {
+            if (PhotonNetwork.IsConnected) {
+                return (int)photonView.Owner.CustomProperties["PowerLevel"];
+            } else {
+                return PlayerPrefs.GetInt("PowerLevel");
+            }
+        }
+        set {
+            if (PhotonNetwork.IsConnected) {
+                if (photonView.IsMine) {
+                    PlayerPrefs.SetInt("PowerLevel", value);
+                    ExitGames.Client.Photon.Hashtable current = photonView.Owner.CustomProperties;
+                    current["PowerLevel"] = value;
+                    photonView.Owner.SetCustomProperties(current);
+                }
+            } else {
+                PlayerPrefs.SetInt("PowerLevel", value);
+            }
+        }
+    }
 
     ILocationProvider _locationProvider;
     ILocationProvider LocationProvider
@@ -34,6 +55,10 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable {
 
     void Start()
     {
+        if (!PlayerPrefs.HasKey("PowerLevel")) {
+            PlayerPrefs.SetInt("PowerLevel", 1);
+        }
+        powerLevel = PlayerPrefs.GetInt("PowerLevel");
         if (PhotonNetwork.IsConnected)
         {
             flyingName.text = photonView.Owner.NickName;
