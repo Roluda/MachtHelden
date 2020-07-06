@@ -51,7 +51,9 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 				go.transform.SetParent(ve.GameObject.transform, false);
 			}
 
-			PositionScaleRectTransform(ve, tile, go);
+			if (go != null) {
+				PositionScaleRectTransform(ve, tile, go);
+			}
 
 			if (_options.AllPrefabsInstatiated != null)
 			{
@@ -69,7 +71,6 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 				centroidVector += point;
 			}
 			centroidVector = centroidVector / ve.Feature.Points[0].Count;
-
 			go.name = ve.Feature.Data.Id.ToString();
 
 			goRectTransform = go.GetComponent<RectTransform>();

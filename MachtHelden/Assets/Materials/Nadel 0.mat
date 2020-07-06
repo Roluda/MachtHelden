@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Nadel
+  m_Name: Nadel 0
   m_Shader: {fileID: -6465566751694194690, guid: 3ed3bdaa61536f74485e01b743bae59d,
     type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _SPECULAR_SETUP

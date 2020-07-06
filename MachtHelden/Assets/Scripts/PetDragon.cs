@@ -16,14 +16,15 @@ public class PetDragon : MonoBehaviour
     public float degreePerSecond;
     public Transform target;
 
-
+    Color standardColor;
     float timeAlive;
 
     // Start is called before the first frame update
     void Start()
     {
         averageHeight = transform.localPosition.y;
-        render.material.color  = Random.ColorHSV(0, 1, .5f, .7f);
+        standardColor = Random.ColorHSV(0, 1, .5f, .7f);
+        render.material.color = standardColor;
     }
 
     // Update is called once per frame
@@ -33,5 +34,15 @@ public class PetDragon : MonoBehaviour
         transform.RotateAround(target.position, Vector3.up, degreePerSecond * Time.deltaTime);
         float altitude = averageHeight + amplitude * Mathf.Sin(timeAlive * frequency *Mathf.PI*2);
         transform.localPosition = new Vector3(transform.localPosition.x, altitude, transform.localPosition.z);
+    }
+
+    public void TakeHit() {
+        StartCoroutine(BlinkWhite());
+    }
+
+    IEnumerator BlinkWhite() {
+        render.material.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        render.material.color = standardColor;
     }
 }

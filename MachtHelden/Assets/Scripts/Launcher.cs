@@ -24,6 +24,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        //var locationCheck = Input.location;
         ExitGames.Client.Photon.PhotonPeer.RegisterType(typeof(FireSpawn), 255, FireSpawn.Serialize, FireSpawn.Deserialize);
         ExitGames.Client.Photon.Hashtable customProps = new ExitGames.Client.Photon.Hashtable();
         customProps.Add("Hero", 0);

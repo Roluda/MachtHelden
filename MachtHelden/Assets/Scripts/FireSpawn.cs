@@ -26,11 +26,13 @@ public class FireSpawn : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         transform.parent = null;
-        time = newFireCooldown - 10;
+        time = newFireCooldown - 5;
         //FireSpawnList.Instance.AddEntryToList(this);
         if(Physics.OverlapSphere(transform.position,GetComponent<SphereCollider>().radius, spawnerLayerMask).Length > 0)
         {
-            DestroyImmediate(gameObject);
+            Debug.Log("Fire Gone");
+            //GetComponent<SphereCollider>().enabled = false;
+            DestroyImmediate(this.gameObject);
         }
         else if (PhotonNetwork.AllocateViewID(photonView) &&!isNetworked)
         {

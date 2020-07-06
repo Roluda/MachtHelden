@@ -26,7 +26,7 @@ public class TreeBarrier : MonoBehaviour
         Collider[] collisions = Physics.OverlapSphere(transform.localPosition, InferenceRadius, instantiationInferenceCheck);
         if (collisions.Length>1)
         {
-            DestroyImmediate(gameObject);
+            Destroy(gameObject);
         }
         else
         {

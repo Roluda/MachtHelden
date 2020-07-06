@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d83a58b835d6d41b89e32f872467b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnRadius: 1
+  SpawnRadius: 8
   FireSpawnPrefab: {fileID: 761074815467490681, guid: 9b43d1fd9f78d0e4d8a8a1457c368be6,
     type: 3}
   spawnPoints: []

@@ -66,7 +66,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5613341186734830051
 MonoBehaviour:
@@ -88,4 +88,4 @@ MonoBehaviour:
   fireZonePrefab: {fileID: 6433837230400411406, guid: be03f2b109ef0a144a06a5e6077acd8c,
     type: 3}
   newFireCooldown: 60
-  spawnRadius: 5
+  spawnRadius: 1

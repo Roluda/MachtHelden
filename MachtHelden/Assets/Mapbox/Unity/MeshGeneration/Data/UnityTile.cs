@@ -293,6 +293,7 @@ namespace Mapbox.Unity.MeshGeneration.Data
 				}
 
 				MeshRenderer.material.mainTexture = _rasterData;
+				MeshRenderer.material.SetTexture("_BaseMap", _rasterData);
 				RasterDataState = TilePropertyState.Loaded;
 			}
 		}

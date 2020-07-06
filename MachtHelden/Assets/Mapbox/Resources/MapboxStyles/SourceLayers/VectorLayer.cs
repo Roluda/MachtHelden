@@ -290,6 +290,7 @@ namespace Mapbox.Unity.Map
 											 string locationItemName = "New Location")
 		{
 			var coordinateArray = new string[LatLon.Length];
+
 			for (int i = 0; i < LatLon.Length; i++)
 			{
 				coordinateArray[i] = LatLon[i].x + ", " + LatLon[i].y;

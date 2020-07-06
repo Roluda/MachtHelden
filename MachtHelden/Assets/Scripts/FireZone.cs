@@ -22,8 +22,7 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (value <= 0)
             {
-                value = 0;
-                Extinguish();
+                _flameHealth = 0;
             }
             else
             {
@@ -34,6 +33,7 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
     }
 
     List<PlayerController> helpers = new List<PlayerController>();
+    public bool mainHeroNearby;
 
     private void OnTriggerStay(Collider other)
     {
@@ -41,15 +41,44 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
             if (other.gameObject.layer == 8)
             {
                 FlameHealth -= decayRate * Time.deltaTime;
-                PlayerController helper = other.gameObject.GetComponent<PlayerController>();
-                if (helper != null && !helpers.Contains(helper)) {
-                    helpers.Add(helper);
-                }
             }
         }
     }
 
-    void Start()
+    private void OnTriggerEnter(Collider other) {
+        PlayerController helper = other.gameObject.GetComponent<PlayerController>();
+        if (helper != null && !helpers.Contains(helper)) {
+            helpers.Add(helper);
+        }
+        if (helper != null && helper.photonView.IsMine || !PhotonNetwork.IsConnected) {
+            GlobalLight.Instance.DangerMode();
+            mainHeroNearby = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        PlayerController leaver = other.gameObject.GetComponent<PlayerController>();
+        if (leaver != null && leaver.photonView.IsMine || !PhotonNetwork.IsConnected) {
+            GlobalLight.Instance.NormalMode();
+            mainHeroNearby = false;
+        }
+    }
+
+    public void LowerFire(int value) {
+        photonView.RPC("RpcLowerFire", RpcTarget.MasterClient, value);
+    }
+
+    [PunRPC]
+    void RpcLowerFire(int value) {
+        if (FlameHealth > 0) {
+            FlameHealth -= value;
+            if (FlameHealth <= 0) {
+                Extinguish();
+            }
+        }
+    }
+
+    void Awake()
     {
         InitialScale = particles.transform.localScale;
         _flameHealth = 100;
@@ -57,13 +86,24 @@ public class FireZone : MonoBehaviourPunCallbacks, IPunObservable
 
     void Extinguish()
     {
-        foreach(PlayerController helper in helpers) {
-            helper.powerLevel++;
-        }
         if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected)
         {
+            photonView.RPC("RpcExtinguish", RpcTarget.All);
             QuestManager.Instance.CompleteStage();
             PhotonNetwork.Destroy(this.gameObject);
+        }
+    }
+
+    [PunRPC]
+    void RpcExtinguish() {
+        if (mainHeroNearby) {
+            GlobalLight.Instance.NormalMode();
+        }
+
+        foreach (PlayerController helper in helpers) {
+            //Future me: maybe check if helper is owned by client. It now ok because power level is
+            //secure to increse
+            helper.powerLevel++;
         }
     }
 

@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable {
     void Start()
     {
         if (!PlayerPrefs.HasKey("PowerLevel")) {
-            PlayerPrefs.SetInt("PowerLevel", 1);
+            PlayerPrefs.SetInt("PowerLevel", 0);
         }
         powerLevel = PlayerPrefs.GetInt("PowerLevel");
         if (PhotonNetwork.IsConnected)
@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable {
             var map = LocationProviderFactory.Instance.mapManager;
             transform.localPosition = Vector3.Lerp(transform.localPosition, map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude), Time.deltaTime*5);
             Shader.SetGlobalVector("_PlayerPosition", transform.position);
-            Debug.Log(transform.localPosition);
         }
     }
 

@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 3866243655138432632, guid: 05a6fc92a83c1ba42aab899aab289792, type: 3}
   - {fileID: 1800415797701550732, guid: a48a632273eea7743ad08b0cf2bdcecd, type: 3}
   - {fileID: 2872605135911113024, guid: 7b70e9d9d07b115469c4df14a7eff955, type: 3}
+  - {fileID: 2872605135911113024, guid: 8d0a9138f1aba104e9e5da09faf90d8d, type: 3}
   instantiationInferenceCheck:
     serializedVersion: 2
     m_Bits: 512
